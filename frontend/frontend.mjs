@@ -1,4 +1,4 @@
-QUOTE_API_URL = "http://127.0.0.1:3000/";
+const QUOTE_API_URL = "http://127.0.0.1:3000/";
 
 window.addEventListener("load", () => {
   updateQuote();
@@ -6,10 +6,11 @@ window.addEventListener("load", () => {
 });
 
 async function updateQuote() {
-  quoteContainer = document.getElementById("quote");
-  authorContainer = document.getElementById("author");
+  const quoteContainer = document.getElementById("quote");
+  const authorContainer = document.getElementById("author");
   try {
     let attempt = 0;
+    let new_quote;
     do {
       attempt += 1;
       new_quote = await fetchQuote(QUOTE_API_URL);
