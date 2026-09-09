@@ -5,19 +5,19 @@ window.addEventListener("load", () => {
   document.getElementById("new-quote").addEventListener("click", updateQuote);
 });
 
-function updateQuote() {
-  quote = fetchQuote(QUOTE_API_URL);
-  document.getElementById("quote").innerText = quote.quote;
-  document.getElementById("author").innerText = quote.author;
+async function updateQuote() {
+  try {
+    quote = await fetchQuote(QUOTE_API_URL);
+    document.getElementById("quote").innerText = quote.quote;
+    document.getElementById("author").innerText = quote.author;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
-function fetchQuote(url) {
-  return fetch(url)
-    .then((result) => {
-      if (!result.ok) throw new Error("Failed to load quote.");
-      return result.json;
-    })
-    .then((quote) => {
-      return quote;
-    });
+async function fetchQuote(url) {
+  return fetch(url).then((result) => {
+    if (!result.ok) throw new Error("Failed to load quote.");
+    return result.json();
+  });
 }

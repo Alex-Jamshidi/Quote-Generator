@@ -1,5 +1,5 @@
 import express from "express";
-// import { quotes } from "./quotes.js";
+import cors from "cors";
 
 const app = express();
 const port = 3000;
@@ -15,6 +15,8 @@ const quotes = [
   },
 ];
 
+app.use(cors());
+
 function randomQuote() {
   const index = Math.floor(Math.random() * quotes.length);
   return quotes[index];
@@ -22,7 +24,7 @@ function randomQuote() {
 
 app.get("/", (req, res) => {
   const quote = randomQuote();
-  res.send(`"${quote.quote}" - ${quote.author}`);
+  res.send(quote);
 });
 
 app.post("/", (req, res) => {
