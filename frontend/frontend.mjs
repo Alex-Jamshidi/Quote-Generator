@@ -1,4 +1,4 @@
-const QUOTE_API_URL = "http://127.0.0.1:3000/";
+const QUOTE_API_URL = "https://wnwb6d7ykhntj8baadogfael.trainees.hosting.cyf.academy/";
 
 window.addEventListener("load", () => {
   updateQuote();
