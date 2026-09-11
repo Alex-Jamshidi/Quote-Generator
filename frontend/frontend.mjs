@@ -1,4 +1,4 @@
-const QUOTE_BACKEND_URL = "https://wnwb6d7ykhntj8baadogfael.trainees.hosting.cyf.academy/";
+const QUOTE_BACKEND_URL = "https://alex-jamshidi-quote-generator-backend.trainees.hosting.cyf.academy/";
 
 window.addEventListener("load", () => {
   updateQuote();
